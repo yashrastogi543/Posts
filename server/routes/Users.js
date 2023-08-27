@@ -14,6 +14,16 @@ router.post("/",async (req,res)=>{
     res.json("Success");
     });  
 });
+router.post("/login",async(req,res)=>{
+    const {username,password}=req.body;
+    const user=await Users.findOne({where: {username:username}});
+    if(!user){res.json({error: "no such user exists"});}
+    else{
+    bcrypt.compare(password,user.password).then((result)=>{
+        if(result){res.json("logged in successfully");}
+        else {res.json({error: "password does not match"});}
+    });
+}});
 // router.post("/",async (req,res)=>{
 //     const post=req.body;
 //     await Posts.create(post);
