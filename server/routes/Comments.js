@@ -1,22 +1,20 @@
-const express=require('express')
+const express = require("express");
+const router = express.Router();
+const { Comments } = require("../models");
+const { validateToken } = require("../middlewares/AuthMiddleware");
 
-const router=express.Router();
-const { Comments }=require('../models');
+router.get("/:postId", async (req, res) => {
+  const postId = req.params.postId;
+  const comments = await Comments.findAll({ where: { PostId: postId } });
+  res.json(comments);
+});
 
-router.get("/:id",async (req,res)=>{
-    const id1=req.params.id;
-    const element = await Comments.findAll({ where: { PostId: id1 } });
-    res.json(element);
-})
-router.post("/",async (req,res)=>{
-    const comment=req.body;
-    await Comments.create(comment);
-    res.json(comment);
-})
-// router.post("/postComment/:id",async (req,res)=>{
-//     const id1=req.params.id;
-//     const cmnt=req.body;
-//     await Comments.create(post);
-//     res.json(post);
-// })
-module.exports=router;
+router.post("/", validateToken, async (req, res) => {
+  const comment = req.body;
+  const username = req.user.username;
+  comment.username = username;
+  await Comments.create(comment);
+  res.json(comment);
+});
+
+module.exports = router;

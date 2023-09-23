@@ -1,5 +1,5 @@
 .App {
-  width: 100vw;
+  width: 100%;
   height: auto;
   display: flex;
   align-items: center;
@@ -49,7 +49,7 @@ body {
   display: flex;
   align-items: center;
   padding-left: 15px;
-  background-color: rgb(121, 113, 113);
+  background-color: rgb(0, 0, 0);
   color: white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -72,15 +72,15 @@ body {
   width: 500px;
   height: auto;
   padding: 20px;
-  border: 5px solid rgb(0, 0, 0);
-  border-radius: 5px;
+  /* border: 5px solid rgb(5, 5, 5); */
+  /* border-radius: 5px; */
 }
 
 .formContainer #inputCreatePost {
   height: 40px;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px solid grey;
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
   padding-left: 10px;
   font-size: 20px;
@@ -97,7 +97,7 @@ body {
 
 .formContainer button:hover {
   cursor: pointer;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(15, 16, 17);
 }
 
 span {
@@ -114,11 +114,39 @@ span {
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
 }
+.navbar .links {
+  flex: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
 
+.navbar .loggedInContainer {
+  flex: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 .navbar a {
   margin-left: 20px;
   text-decoration: none;
   color: white;
+}
+
+.navbar button {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.navbar h1 {
+  text-align: right;
+  margin-right: 10px;
+  color: white;
+  font-weight: lighter;
 }
 
 /* INDIVIDUAL POST */
@@ -167,7 +195,7 @@ button {
 }
 
 .addCommentContainer input {
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid rgb(7, 9, 10);
 }
 
 .rightSide .listOfComments {
@@ -222,10 +250,10 @@ button {
 }
 
 .loginContainer button {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(14, 15, 17);
   color: white;
 }
 
 .loginContainer input {
-  border: 2px solid rgb(3, 3, 3);
+  border: 2px solid rgb(4, 5, 7);
 }
